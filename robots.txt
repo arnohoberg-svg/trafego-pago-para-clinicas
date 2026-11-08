@@ -3,4 +3,4 @@ Allow: /
 Disallow: /obrigado/
 
 # Favicons, CSS, JS e imagens ficam liberados para o Google renderizar a página.
-Sitemap: {{URL_BASE}}/sitemap.xml
+Sitemap: https://arnohoberg.com.br/sitemap.xml
