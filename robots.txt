@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado/
+
+# Favicons, CSS, JS e imagens ficam liberados para o Google renderizar a página.
+Sitemap: {{URL_BASE}}/sitemap.xml
