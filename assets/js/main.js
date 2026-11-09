@@ -9,7 +9,7 @@
     ebookUrl: '{{EBOOK_PDF_URL}}',      // link do PDF do e-book (após definir o tema)
     gtmId: '',                          // ex.: 'GTM-XXXXXXX'  (recomendado: GA4 e Meta Pixel via GTM)
     ga4Id: '',                          // ex.: 'G-XXXXXXXXXX' (use só se NÃO usar GTM)
-    metaPixelId: ''                     // ex.: '123456789012345' (use só se NÃO usar GTM)
+    metaPixelId: '1493946062637749'     // Meta Pixel (só carrega após o aceite de cookies)
   };
   var CONSENT_KEY = 'ah_consent_v1';
 
@@ -20,7 +20,11 @@
     window.dataLayer.push(data);
     if (typeof window.fbq === 'function') {
       var map = { whatsapp_click: 'Contact', generate_lead: 'Lead', ebook_download: 'Lead' };
-      if (map[event]) window.fbq('track', map[event]);
+      if (map[event]) {
+        // content_name = botão/formulário de origem (permite ver no Meta qual botão converte mais)
+        var cn = (params && (params.link_location || params.form_name)) || '';
+        window.fbq('track', map[event], cn ? { content_name: cn } : {});
+      }
     }
   }
   function isSet(v) { return v && v.indexOf('{{') === -1; }
